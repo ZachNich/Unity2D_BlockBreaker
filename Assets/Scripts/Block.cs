@@ -6,7 +6,6 @@ public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject sparklesVFX;
-    [SerializeField] int maxHits;
     [SerializeField] Sprite[] hitSprites;
 
     Level level;
@@ -14,12 +13,14 @@ public class Block : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     int timesHit;
+    int maxHits;
 
     void Start()
     {
         level = FindObjectOfType<Level>();
         gameStatus = FindObjectOfType<GameStatus>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        maxHits = hitSprites.Length + 1;
         if (tag == "Breakable") level.AddBlock();
     }
 
@@ -28,7 +29,19 @@ public class Block : MonoBehaviour
         if (tag == "Breakable") {
             timesHit++;
             if (timesHit >= maxHits) HandleBlockDestroy();
-            else spriteRenderer.sprite = hitSprites[timesHit - 1];
+            else ShowNextHitSprite();
+        }
+    }
+
+    void ShowNextHitSprite()
+    {
+        if (hitSprites[timesHit - 1] != null)
+        {
+            spriteRenderer.sprite = hitSprites[timesHit - 1];
+        }
+        else
+        {
+            Debug.Log($"Block sprite missing from array: {gameObject.name}");
         }
     }
 

@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1347074481949380923, guid: 4a579133829485248ba0eb28a0cbf97d, type: 3}
+      propertyPath: isAutoPlaying
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3195081991212113101, guid: 4a579133829485248ba0eb28a0cbf97d, type: 3}
       propertyPath: m_Name
       value: GameStatus

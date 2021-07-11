@@ -9,6 +9,7 @@ public class GameStatus : MonoBehaviour
     [SerializeField] int pointsPerBlockDestroyed = 69;
     [SerializeField] int currScore = 0; 
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] bool isAutoPlaying;
 
     void Awake()
     {
@@ -41,5 +42,10 @@ public class GameStatus : MonoBehaviour
     public void ResetGame()
     {
         Destroy(gameObject);
+    }
+
+    public bool IsAutoPlaying()
+    {
+        return isAutoPlaying;
     }
 }
