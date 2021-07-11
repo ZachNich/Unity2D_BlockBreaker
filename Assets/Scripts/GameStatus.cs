@@ -7,7 +7,7 @@ public class GameStatus : MonoBehaviour
 {
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlockDestroyed = 69;
-    [SerializeField] int currScore = 0;
+    [SerializeField] int currScore = 0; 
     [SerializeField] TextMeshProUGUI scoreText;
 
     void Awake()
@@ -36,5 +36,10 @@ public class GameStatus : MonoBehaviour
     {
         currScore += pointsPerBlockDestroyed;
         scoreText.text = currScore.ToString();
+    }
+
+    public void ResetGame()
+    {
+        Destroy(gameObject);
     }
 }
